@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-const Departments = () => {
+const Departments = ({ onDepartmentClick }) => {
   const departmentsArray = [
     {
       name: "Pediatrics",
@@ -80,7 +80,12 @@ const Departments = () => {
         >
           {departmentsArray.map((depart, index) => {
             return (
-              <div key={index} className="card">
+              <div
+                key={index}
+                className="card"
+                onClick={() => onDepartmentClick(depart.name)}
+                style={{ cursor: "pointer" }}
+              >
                 <div className="depart-name">{depart.name}</div>
                 <img src={depart.imageUrl} alt="Department" />
               </div>
@@ -91,5 +96,6 @@ const Departments = () => {
     </>
   );
 };
+
 
 export default Departments;

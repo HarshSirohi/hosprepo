@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await axios
-      .get("http://localhost:5000/api/v1/user/patient/logout", {
+      .get("http://localhost:8000/api/v1/user/patient/logout", {
         withCredentials: true,
       })
       .then((res) => {
@@ -33,7 +33,11 @@ const Navbar = () => {
     <>
       <nav className={"container"}>
         <div className="logo">
-          <img src="/logo.png" alt="logo" className="logo-img" />
+          <img src="/logo1.png" alt="MediSphere logo" className="logo-img" />
+          <div className="logo-text">
+            <span className="logo-title">MediSphere</span>
+            <span className="logo-tagline">Healthcare Excellence</span>
+          </div>
         </div>
         <div className={show ? "navLinks showmenu" : "navLinks"}>
           <div className="links">

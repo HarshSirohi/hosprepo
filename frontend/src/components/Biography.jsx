@@ -1,6 +1,6 @@
 import React from "react";
 
-const Biography = ({imageUrl}) => {
+const Biography = ({ imageUrl }) => {
   return (
     <>
       <div className="container biography">
@@ -8,29 +8,26 @@ const Biography = ({imageUrl}) => {
           <img src={imageUrl} alt="whoweare" />
         </div>
         <div className="banner">
-          <p>Biography</p>
-          <h3>Who We Are</h3>
+          <p>Our Legacy</p>
+          <h3>Advancing Healthcare Excellence</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            blanditiis sequi aperiam. Debitis fugiat harum ex maxime illo
-            consequatur mollitia voluptatem omnis nihil nesciunt beatae esse
-            ipsam, sapiente totam aspernatur porro ducimus aperiam nisi. Ex
-            magnam voluptatum consectetur reprehenderit fugiat recusandae aut
-            similique illum natus velit, praesentium nostrum nesciunt. Deleniti,
-            nesciunt laboriosam totam iusto!
+            MediSphere Medical Platform stands at the forefront of modern healthcare,
+            combining compassionate patient care with groundbreaking medical innovation.
+            Established with a vision to make world-class medical services accessible to all,
+            we have grown into a leading institution recognized for our clinical excellence
+            and patient-centric approach.
           </p>
-          <p>We are all in 2024!</p>
-          <p>We are working on a MERN STACK PROJECT.</p>
+          <p>Serving our community since 2010!</p>
+          <p>Specializing in Comprehensive Medical Solutions.</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            assumenda exercitationem accusamus sit repellendus quo optio dolorum
-            corporis corrupti. Quas similique vel minima veniam tenetur
-            obcaecati atque magni suscipit laboriosam! Veniam vitae minus nihil
-            cupiditate natus provident. Ex illum quasi pariatur odit nisi
-            voluptas illo qui ipsum mollitia. Libero, assumenda?
+            Our team of expert physicians, skilled nurses, and dedicated support staff
+            work together in a highly synchronized environment. Leveraging the latest
+            medical technologies, including our state-of-the-art MERN-stack integrated
+            management system, we ensure that every patient receives personalized
+            and efficient treatment tailored to their unique needs.
           </p>
-          <p>Lorem ipsum dolor sit amet!</p>
-          <p>Coding is fun!</p>
+          <p>Your Health, Our Priority.</p>
+          <p>Excellence in Every Interaction.</p>
         </div>
       </div>
     </>

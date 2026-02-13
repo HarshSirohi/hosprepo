@@ -43,7 +43,11 @@ const Footer = () => {
         <hr />
         <div className="content">
           <div>
-            <img src="/logo.png" alt="logo" className="logo-img"/>
+            <img src="/logo1.png" alt="MediSphere logo" className="logo-img" />
+            <div className="footer-brand">
+              <h3>MediSphere</h3>
+              <p>Your trusted healthcare platform</p>
+            </div>
           </div>
           <div>
             <h4>Quick Links</h4>
@@ -72,7 +76,7 @@ const Footer = () => {
             </div>
             <div>
               <MdEmail />
-              <span>zeelab@gmail.com</span>
+              <span>contact@medisphere.com</span>
             </div>
             <div>
               <FaLocationArrow />

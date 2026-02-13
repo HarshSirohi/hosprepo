@@ -3,6 +3,10 @@ import ErrorHandler from "../middlewares/error.js";
 import { Appointment } from "../models/appointmentschema.js";
 import { User } from "../models/userschema.js";
 
+/**
+ * Creates a new appointment.
+ * Validates doctor availability and maps the appointment to the user profile.
+ */
 export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   const {
     firstName,
@@ -81,6 +85,9 @@ export const postAppointment = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+/**
+ * Retrieves all appointments.
+ */
 export const getAllAppointments = catchAsyncErrors(async (req, res, next) => {
   const appointments = await Appointment.find();
   res.status(200).json({
@@ -88,6 +95,9 @@ export const getAllAppointments = catchAsyncErrors(async (req, res, next) => {
     appointments,
   });
 });
+/**
+ * Updates the status (Pending, Approved, Rejected) of an appointment.
+ */
 export const updateAppointmentStatus = catchAsyncErrors(
   async (req, res, next) => {
     const { id } = req.params;
@@ -106,6 +116,9 @@ export const updateAppointmentStatus = catchAsyncErrors(
     });
   }
 );
+/**
+ * Deletes a specific appointment by ID.
+ */
 export const deleteAppointment = catchAsyncErrors(async (req, res, next) => {
   const { id } = req.params;
   const appointment = await Appointment.findById(id);

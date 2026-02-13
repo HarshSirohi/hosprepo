@@ -17,6 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Sidebar from "./components/Sidebar";
 import AddNewAdmin from "./components/AddNewAdmin";
 import "./App.css";
+import InteractiveBackground from "./components/InteractiveBackground";
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, admin, setAdmin } =
@@ -43,7 +44,9 @@ const App = () => {
 
   return (
     <Router>
+      <InteractiveBackground />
       <Sidebar />
+
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />

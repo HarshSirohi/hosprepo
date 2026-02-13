@@ -1,11 +1,13 @@
-
-
 import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js";
 import { User } from "../models/userschema.js";
 import ErrorHandler from "../middlewares/error.js";
 import { generateToken } from "../utils/jwtToken.js";
 import cloudinary from "cloudinary";
 
+/**
+ * Handles patient registration.
+ * Validates required fields, checks for existing users, and creates a new Patient record.
+ */
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
   const { firstName, lastName, email, phone, nic, dob, gender, password } =
     req.body;
@@ -41,6 +43,10 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
   generateToken(user, "User Registered!", 200, res);
 });
 
+/**
+ * Handles user login for both Patients and Admins.
+ * Validates credentials and generates a secure JWT token.
+ */
 export const login = catchAsyncErrors(async (req, res, next) => {
   const { email, password, confirmPassword, role } = req.body;
   if (!email || !password || !confirmPassword || !role) {
@@ -66,6 +72,9 @@ export const login = catchAsyncErrors(async (req, res, next) => {
   generateToken(user, "Login Successfully!", 201, res);
 });
 
+/**
+ * Adds a new administrator to the system.
+ */
 export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
   const { firstName, lastName, email, phone, nic, dob, gender, password } =
     req.body;
@@ -105,6 +114,9 @@ export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+/**
+ * Registers a new doctor and uploads their avatar to Cloudinary.
+ */
 export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return next(new ErrorHandler("Doctor Avatar Required!", 400));
@@ -180,6 +192,9 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+/**
+ * Retrieves a list of all registered doctors.
+ */
 export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
   const doctors = await User.find({ role: "Doctor" });
   res.status(200).json({
@@ -188,6 +203,9 @@ export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+/**
+ * Returns the currently authenticated user's profile details.
+ */
 export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
   const user = req.user;
   res.status(200).json({
@@ -197,6 +215,9 @@ export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Logout function for dashboard admin
+/**
+ * Logs out the Admin by clearing the adminToken cookie.
+ */
 export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
   res
     .status(201)
@@ -211,6 +232,9 @@ export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Logout function for frontend patient
+/**
+ * Logs out the Patient by clearing the patientToken cookie.
+ */
 export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
   res
     .status(201)

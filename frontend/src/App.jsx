@@ -12,6 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { Context } from "./main";
 import Login from "./pages/Login";
+import InteractiveBackground from "./components/InteractiveBackground";
+
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } =
     useContext(Context);
@@ -38,7 +40,9 @@ const App = () => {
   return (
     <>
       <Router>
+        <InteractiveBackground />
         <Navbar />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/appointment" element={<Appointment />} />
@@ -49,7 +53,7 @@ const App = () => {
         <Footer />
         <ToastContainer position="top-center" />
       </Router>
-      
+
     </>
   );
 };

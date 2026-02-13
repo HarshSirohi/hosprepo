@@ -6,7 +6,7 @@ import cors from "cors";
 import fileUpload from "express-fileupload";
 import { errorMiddleware } from "./middlewares/error.js";
 
-import messageRouter from "./router/messagerouter.js";
+import messageRouter from "./router/messageRouter.js";
 import userRouter from "./router/userRouter.js";
 import appointmentRouter from "./router/appointmentRouter.js";
 const app = express();

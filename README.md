@@ -1,4 +1,5 @@
 🏥 Hospital Management System (MERN Stack)
+Live App : https://user-interface-msm.netlify.app/
 
 A full-stack Hospital Management System (HMS) built using the MERN stack to digitize hospital operations including patient management, appointment scheduling, medical records, and billing.
 
